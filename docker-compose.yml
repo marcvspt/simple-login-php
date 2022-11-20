@@ -30,7 +30,7 @@ services:
             MYSQL_ROOT_PASSWORD: 'root'
             MYSQL_USER: 'user'
             MYSQL_PASSWORD: 'password'
-            MYSQL_DATABASE: 'pythonbf'
+            MYSQL_DATABASE: 'login'
 
     phpmyadmin:
         container_name: phpmyadmin
