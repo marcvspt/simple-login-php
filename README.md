@@ -31,7 +31,7 @@ CREATE TABLE `users` (
 ```
 This is the same that have in a comment in the file www/config.php. You must insert the users data manually.
 
-## ADDITIONAL INFO
+## EXTRA INFO AND CONFIG (optional)
 To run this service when the server start just copy the file **docker-webapp.service** like root or with sudo in the system folder and enable the service:
 ```bash
 cp docker-webapp.service /etc/systemd/system/
