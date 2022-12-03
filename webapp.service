@@ -1,11 +1,11 @@
 [Unit]
-Description=Docker Compose Application Service
+Description=Web Application Service with Docker
 Requires=docker.service
 After=docker.service
 StartLimitIntervalSec=60
 
 [Service]
-WorkingDirectory=/opt/bfLab
+WorkingDirectory=/opt/phpSimpleLoginDocker
 ExecStart=/usr/bin/docker-compose up
 ExecStop=/usr/bin/docker-compose down
 TimeoutStartSec=0
