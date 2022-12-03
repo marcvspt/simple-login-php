@@ -19,7 +19,7 @@ Container with the database named "db":
 ```bash
 mariadb -uuser -p
 ```
-The passwords to access at the database are in the www/config.php file and docker-compose.yml.
+The passwords to access at the database are in the [**config.php file**](www/config.php) and [**docker-compose file**](docker-compose.yml).
 
 Copy and paste this:
 ```MySQL
@@ -30,11 +30,11 @@ CREATE TABLE `users` (
   `password` varchar(80) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 ```
-This is the same that are in a comment in the file www/config.php. **You must insert the users data manually**.
+**You must insert the users data manually**.
 
 ## EXTRA INFO AND CONFIG (optional)
-To run this service when the server start just copy the file **docker-webapp.service** like root or with sudo in the system folder and enable the service:
+To run this service when the server start just copy the [**service file**](webapp.service) like root or with sudo in the system folder and enable the service:
 ```bash
-cp docker-webapp.service /etc/systemd/system/
-systemctl enable docker-webapp.service
+sudo cp webapp.service /etc/systemd/system/
+sudo systemctl enable webapp.service
 ```
