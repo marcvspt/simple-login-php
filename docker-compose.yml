@@ -1,19 +1,19 @@
 version: '3.7'
 
 services:
-    www:
-        container_name: www
-        hostname: www
+    web:
+        container_name: web
+        hostname: web
         build:
-            context: ./
-            dockerfile: Dockerfile-php-mysql
+            context: ./web
+            dockerfile: Dockerfile
         restart: always
-        ports:
-            - 80:80
         volumes:
-            - ./www:/var/www/html
+            - ./web/html:/var/www/html
         links:
             - db:db
+        ports:
+            - 80:80
         networks:
             - default
 
@@ -22,8 +22,6 @@ services:
         hostname: db
         image: mariadb:latest
         restart: always
-        ports:
-            - 127.0.0.1:3306:3306
         volumes:
             - db-data:/var/lib/mysql
         environment:
@@ -31,10 +29,12 @@ services:
             MYSQL_USER: 'user'
             MYSQL_PASSWORD: 'password'
             MYSQL_DATABASE: 'login'
+        ports:
+            - 127.0.0.1:3306:3306
 
-    phpmyadmin:
-        container_name: phpmyadmin
-        hostname: phpmyadmin
+    pma:
+        container_name: pma
+        hostname: pma
         image: phpmyadmin/phpmyadmin
         restart: always
         links:
