@@ -10,17 +10,15 @@ services:
         restart: always
         volumes:
             - ./web/html:/var/www/html
-        links:
-            - db:db
         ports:
             - 80:80
         networks:
-            - default
+            - login-network
 
     db:
         container_name: db
         hostname: db
-        image: mariadb:latest
+        image: mariadb:10.7
         restart: always
         volumes:
             - db-data:/var/lib/mysql
@@ -30,17 +28,23 @@ services:
             MYSQL_PASSWORD: 'password'
             MYSQL_DATABASE: 'login'
         ports:
-            - 127.0.0.1:3306:3306
+            - "3306:3306"
+        networks:
+            - login-network
 
     pma:
         container_name: pma
         hostname: pma
-        image: phpmyadmin/phpmyadmin
+        image: phpmyadmin:5.2
         restart: always
-        links:
-            - db:db
         ports:
-            - 127.0.0.1:8080:80
+            - "8080:80"
+        networks:
+            - login-network
 
 volumes:
     db-data:
+
+networks:
+  login-network:
+    driver: bridge
