@@ -35,6 +35,6 @@ CREATE TABLE `users` (
 ## EXTRA INFO AND CONFIG (optional)
 To run this service when the server start just copy the [**service file**](webapp.service) like root or with sudo in the system folder and enable the service:
 ```bash
-sudo cp webapp.service /etc/systemd/system/
+sudo cp ./webapp.service /etc/systemd/system/webapp.service
 sudo systemctl enable webapp.service
 ```
