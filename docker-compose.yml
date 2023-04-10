@@ -8,6 +8,8 @@ services:
             context: ./web
             dockerfile: Dockerfile
         restart: always
+        depends_on:
+            - db
         volumes:
             - ./web/html:/var/www/html
         ports:
@@ -25,10 +27,8 @@ services:
         environment:
             MYSQL_ROOT_PASSWORD: root
             MYSQL_USER: user
-            MYSQL_PASSWORD: 'password
+            MYSQL_PASSWORD: password
             MYSQL_DATABASE: login
-        ports:
-            - "3306:3306"
         networks:
             - login-network
 
@@ -37,8 +37,10 @@ services:
         hostname: pma
         image: phpmyadmin:5.2.1
         restart: always
+        depends_on:
+            - db
         ports:
-            - "8080:80"
+            - 8080:80
         networks:
             - login-network
 
