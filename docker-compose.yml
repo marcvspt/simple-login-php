@@ -49,4 +49,5 @@ volumes:
 
 networks:
   login-network:
+    name: login-network
     driver: bridge
