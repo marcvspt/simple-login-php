@@ -46,8 +46,9 @@ services:
 
 volumes:
     db-data:
-
+        name: login-db-data
+        
 networks:
-  login-network:
-    name: login-network
-    driver: bridge
+    login-network:
+        name: login-network
+        driver: bridge
