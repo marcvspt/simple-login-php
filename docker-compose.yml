@@ -18,15 +18,15 @@ services:
     db:
         container_name: db
         hostname: db
-        image: mariadb:10.7
+        image: mariadb:10.7.8
         restart: always
         volumes:
             - db-data:/var/lib/mysql
         environment:
-            MYSQL_ROOT_PASSWORD: 'root'
-            MYSQL_USER: 'user'
-            MYSQL_PASSWORD: 'password'
-            MYSQL_DATABASE: 'login'
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_USER: user
+            MYSQL_PASSWORD: 'password
+            MYSQL_DATABASE: login
         ports:
             - "3306:3306"
         networks:
@@ -35,7 +35,7 @@ services:
     pma:
         container_name: pma
         hostname: pma
-        image: phpmyadmin:5.2
+        image: phpmyadmin:5.2.1
         restart: always
         ports:
             - "8080:80"
