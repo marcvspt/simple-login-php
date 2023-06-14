@@ -3,7 +3,7 @@ Simple login with php and mysql in docker containers
 
 ## Download and Install
 ```bash
-git clone https://github.com/atriox2510/phpSimpleLoginDocker
+git clone https://github.com/atriox2510/SimpleLogin
 cd phpSimpleLoginDocker
 docker-compose up -d
 ```
