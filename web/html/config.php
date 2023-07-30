@@ -1,12 +1,12 @@
 <?php
 session_start();
-$host = "db"; /* Host name */
-$user = "user"; /* User */
-$password = "password"; /* Password */
-$dbname = "login"; /* Database name */
+$dbhost = "db";
+$dbuser = "user";
+$dbpasswd = "password";
+$dbname = "login";
+$dbport = 3306;
 
-$con = mysqli_connect($host, $user, $password, $dbname);
-// Check connection
+$con = mysqli_connect($dbhost, $dbuser, $dbpasswd, $dbname, $dbport);
 if (!$con) {
   die("Connection failed: " . mysqli_connect_error());
 }

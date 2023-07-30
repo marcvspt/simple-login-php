@@ -2,20 +2,21 @@
 include "config.php";
 
 // Check user login or not
-if(!isset($_SESSION['uname'])){
+if (!isset($_SESSION['uname'])) {
   header('Location: index.php');
   exit();
 }
 
 // logout
-if(isset($_POST['but_logout'])){
+if (isset($_POST['but_logout'])) {
   session_destroy();
   header('Location: index.php');
 }
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
   <title>Brute force</title>
 </head>
@@ -26,4 +27,5 @@ if(isset($_POST['but_logout'])){
     <input type="submit" value="Logout" name="but_logout">
   </form>
 </body>
+
 </html>
